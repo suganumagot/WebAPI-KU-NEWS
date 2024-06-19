@@ -27,7 +27,11 @@
                 <div style="text-indent: 2em;">${data['data'][i][2]}</div>
                 <div style="text-indent: 3em;">${data['data'][i][3]}</div>
                 <div style="text-indent: 3em;">${data['data'][i][4]}</div>`)    
-            }          
+                if (data['data'][i][5] !== "") {
+                    document.write(`<img src="image/${data['data'][i][5]}" alt="画像ファイル" width="150" height="150">`);
+                }
+            }
+            
         };
         request.send();
     </script>
