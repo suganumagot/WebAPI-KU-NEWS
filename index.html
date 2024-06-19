@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        p1 {
+            text-indent: 2em;
+        }
+        p2 {
+            text-indent: 4em;
+        }
+    </style>
+    <script>
+        const request = new XMLHttpRequest();
+        request.open('GET', 'https://script.google.com/macros/s/AKfycbxvTNunqhQx175V6u_Rl6h3IiFhoYB0b-H-zY99SXVJOyPPX-PViEUceSHlRAP7ZBvgIA/exec');
+        request.responseType = 'json';
+        request.onload = function () {
+            let data = this.response;
+            //console.log(data)
+            for (i in data['data']){
+                //document.write(`<h2><a href='${data['data'][i][2]}'>${data['data'][i][0]}</a></h2>`)
+                document.write(`<div>${data['data'][i][0]}${data['data'][i][1]}</div>
+                <div style="text-indent: 2em;">${data['data'][i][2]}</div>
+                <div style="text-indent: 3em;">${data['data'][i][3]}</div>
+                <div style="text-indent: 3em;">${data['data'][i][4]}</div>`)    
+            }          
+        };
+        request.send();
+    </script>
+</body>
+ 
+</html>    
